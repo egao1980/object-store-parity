@@ -17,7 +17,7 @@ ros -e '(asdf:test-system "object-store-parity")' -q
 Live:
 
 ```bash
-docker compose up -d
+docker compose up --wait
 ros -e '(asdf:test-system "object-store-parity")' -q
 ```
 
@@ -43,7 +43,7 @@ PARITY=0 ros -e '(asdf:test-system "object-store-parity")' -q
 
 | Service | Image |
 |---------|--------|
-| MinIO | `minio/minio:RELEASE.2025-04-22T22-12-26Z` |
+| MinIO | `quay.io/minio/minio:RELEASE.2025-04-22T22-12-26Z` |
 
 ## License
 
