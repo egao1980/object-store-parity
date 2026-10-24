@@ -6,9 +6,9 @@
 (deftest minio-put-get-list-head
   (cond
     ((not (live-requested-p "OBJECT_STORE_PARITY"))
-     (skip "PARITY=0 or OBJECT_STORE_PARITY=0 — live MinIO canary skipped"))
+     (skip "PARITY=0 or OBJECT_STORE_PARITY=0 — live SeaweedFS canary skipped"))
     ((not (tcp-reachable-p *s3-host* *s3-port*))
-     (skip (format nil "MinIO unreachable at ~a:~a — live canary skipped"
+     (skip (format nil "SeaweedFS unreachable at ~a:~a — live canary skipped"
                    *s3-host* *s3-port*)))
     (t
      (let* ((result (s3-put-get-list-head :payload "hello-minio"))

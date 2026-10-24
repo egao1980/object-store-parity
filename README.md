@@ -1,6 +1,6 @@
 # object-store-parity
 
-Interop canary: **[`object-store-backend-s3`](https://github.com/egao1980/object-store-backend-s3)** (SigV4) vs dockerized **MinIO**. Exercises `put-object` / `get-object` / `list-objects` / `head-object` over `http-backend-dexador`.
+Interop canary: **[`object-store-backend-s3`](https://github.com/egao1980/object-store-backend-s3)** (SigV4) vs dockerized **SeaweedFS**. Exercises `put-object` / `get-object` / `list-objects` / `head-object` over `http-backend-dexador`.
 
 In-memory store tests stay in `object-store-protocol`. Signing fixtures stay in the S3 backend. This repo is **live interop** only.
 
@@ -8,7 +8,7 @@ In-memory store tests stay in `object-store-protocol`. Signing fixtures stay in 
 
 ## Run
 
-Default `asdf:test-system` is green **without Docker** — live cases `skip` when MinIO is unreachable.
+Default `asdf:test-system` is green **without Docker** — live cases `skip` when SeaweedFS is unreachable.
 
 ```bash
 ros -e '(asdf:test-system "object-store-parity")' -q
@@ -30,8 +30,8 @@ PARITY=0 ros -e '(asdf:test-system "object-store-parity")' -q
 | Variable | Default | Meaning |
 |----------|---------|---------|
 | `PARITY` | probe | `0`/`false`/`off` skips live cases |
-| `OBJECT_STORE_PARITY` | probe | same, MinIO-only |
-| `OBJECT_STORE_PARITY_HOST` | `127.0.0.1` | MinIO host |
+| `OBJECT_STORE_PARITY` | probe | same, S3 canary only |
+| `OBJECT_STORE_PARITY_HOST` | `127.0.0.1` | SeaweedFS host |
 | `OBJECT_STORE_PARITY_PORT` | `9000` | S3 API port |
 | `OBJECT_STORE_PARITY_ENDPOINT` | `http://$HOST:$PORT` | full URL |
 | `OBJECT_STORE_PARITY_ACCESS_KEY` | `minioadmin` | SigV4 access key |
@@ -43,7 +43,7 @@ PARITY=0 ros -e '(asdf:test-system "object-store-parity")' -q
 
 | Service | Image |
 |---------|--------|
-| MinIO | `quay.io/minio/minio:RELEASE.2025-04-22T22-12-26Z` |
+| SeaweedFS | `chrislusf/seaweedfs:4.48` |
 
 ## License
 
