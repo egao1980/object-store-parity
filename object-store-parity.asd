@@ -1,6 +1,6 @@
 (defsystem "object-store-parity"
   :version "0.1.0"
-  :description "Interop canary: object-store-backend-s3 SigV4 vs dockerized MinIO"
+  :description "Interop canary: object-store-backend-s3 SigV4 vs dockerized SeaweedFS"
   :author "egao1980"
   :license "MIT"
   :depends-on ("object-store-protocol"
